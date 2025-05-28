@@ -132,4 +132,4 @@ Model prediksi status gizi balita berhasil dikembangkan dan memberikan hasil yan
 
 ---
 
-> 📌 **Catatan**: Proyek ini disusun untuk memenuhi submission proyek Machine Learning di Dicoding dan menggunakan dataset orisinal yang belum dipublikasikan sebelumnya. Seluruh proses dari data preparation hingga evaluasi dilakukan sendiri oleh Lathif Nurma Huda, Universitas Sahid Surakarta.
+> 📌 **Catatan**: Proyek ini disusun untuk memenuhi submission proyek Machine Learning di Dicoding. Seluruh proses dari data preparation hingga evaluasi dilakukan sendiri oleh Lathif Nurma Huda, Universitas Sahid Surakarta.
