@@ -110,11 +110,12 @@ Model yang digunakan:
 
 ### Hasil Evaluasi Model (Data Uji)
 
-| Model               | Accuracy | Precision | Recall | F1-Score |
-|---------------------|----------|-----------|--------|----------|
-| KNN                 | 88%      | 87%       | 86%    | 86.5%    |
-| Random Forest       | 91%      | 90%       | 91%    | 90.5%    |
-| Gradient Boosting   | 92% ✅   | 92%       | 92%    | 92.0%    |
+| Model                        | Akurasi Data Latih | Akurasi Data Uji |
+| ---------------------------- | ------------------ | ---------------- |
+| K-Nearest Neighbors (KNN)    | 97.36%             | 95.42%           |
+| Random Forest Classifier     | 100%               | 95.84%           |
+| Gradient Boosting Classifier | 96.19%             | 92.64%           |
+
 
 - Model Gradient Boosting menunjukkan performa terbaik pada data uji.
 - (Opsional) ![Confusion Matrix Gradient Boosting](img/conf_matrix_gb.png)
@@ -124,7 +125,7 @@ Model yang digunakan:
 
 ### Hasil Evaluasi
 
-
+![Perbandingan hasil model](https://github.com/lathifhuda/Submission_Machine_Learning_Terapan/blob/main/evaluasi%20model.png)
 
 ## Penutup
 
