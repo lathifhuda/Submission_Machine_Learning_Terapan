@@ -118,7 +118,6 @@ Model yang digunakan:
 
 
 - Model Gradient Boosting menunjukkan performa terbaik pada data uji.
-- (Opsional) ![Confusion Matrix Gradient Boosting](img/conf_matrix_gb.png)
 
 ---
 
