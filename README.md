@@ -44,6 +44,11 @@ Dataset yang digunakan diperoleh dari Kaggle:
 
 - Distribusi usia dan tinggi badan ditampilkan dalam histogram dan boxplot
 - Korelasi antar fitur numerik dianalisis dengan scatter plot dan pairplot
+- Korelasi antar fitur divisualisasikan dalam heatmap:
+
+  ![Matriks Korelasi](https://github.com/lathifhuda/Submission_Machine_Learning_Terapan/raw/main/matrik%20korelasi.png)
+
+---
 
 ## Data Preparation
 
