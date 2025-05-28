@@ -51,49 +51,80 @@ Dataset yang digunakan diperoleh dari Kaggle:
 
 ---
 
+### Ringkasan Dataset Sampel
+
+- Dataset setelah proses sampling memiliki **5000 baris dan 4 kolom**
+- Fitur: `Umur (bulan)`, `Jenis Kelamin`, `Tinggi Badan (cm)`, `Status Gizi`
+- Tidak ditemukan **missing values**
+- Terdapat **312 data duplikat**, yang kemudian dihapus
+
 ## Data Preparation
 
-1. **Mengatasi Missing Value**: Tidak ditemukan nilai yang hilang
-2. **Menghapus Duplikat**: Data duplikat dihapus
-3. **Mengatasi Outlier**: Menggunakan metode IQR untuk mendeteksi dan menghapus outlier pada kolom numerik
-4. **Encoding Fitur Kategorikal**: Menggunakan LabelEncoder pada `Jenis Kelamin` dan `Status Gizi`
-5. **Normalisasi Data**: Menggunakan StandardScaler untuk fitur numerik
-6. **Split Dataset**: Data dibagi menjadi data latih dan data uji dengan rasio 80:20
+1. **Menghapus Duplikat**  
+   Sebanyak 312 baris duplikat dihapus dari dataset.
+
+2. **Mengatasi Outlier**  
+   Deteksi dan penghapusan outlier pada fitur numerik (`Umur`, `Tinggi Badan`) menggunakan metode IQR.
+
+3. **Encoding Fitur Kategorikal**  
+   Menggunakan `LabelEncoder` pada `Jenis Kelamin` dan `Status Gizi`.
+
+4. **Split Dataset**  
+   Dataset dibagi menjadi data latih dan data uji dengan rasio 80:20.
+
+5. **Normalisasi Data**  
+   Menggunakan `StandardScaler` pada fitur numerik.  
+   Normalisasi dilakukan setelah split, dan scaler **di-fit pada data latih saja** untuk mencegah data leakage.
+
+---
+
 
 ## Modeling
 
 Model yang digunakan:
 
-1. **K-Nearest Neighbors (KNN)**
+### 1. K-Nearest Neighbors (KNN)
 
-   - Kelebihan: Sederhana, tidak memerlukan asumsi distribusi data
-   - Kekurangan: Sensitif terhadap skala data dan outlier
+- **Cara kerja**: Menentukan kelas berdasarkan mayoritas label dari tetangga terdekat (k) berdasarkan jarak Euclidean.
+- **Parameter**: `n_neighbors=5` (default)
 
-2. **Random Forest Classifier**
+### 2. Random Forest Classifier
 
-   - Kelebihan: Robust terhadap overfitting, interpretabilitas fitur
-   - Kekurangan: Komputasi berat untuk dataset besar
+- **Cara kerja**: Membentuk banyak pohon keputusan dan menggabungkan hasilnya melalui voting.
+- **Parameter**: `n_estimators=100`, `random_state=42`
 
-3. **Gradient Boosting Classifier**
+### 3. Gradient Boosting Classifier
 
-   - Kelebihan: Akurasi tinggi, performa unggul
-   - Kekurangan: Training lebih lambat
+- **Cara kerja**: Membangun model secara iteratif dengan fokus pada kesalahan model sebelumnya.
+- **Parameter**: `n_estimators=100`, `learning_rate=0.1`, `random_state=42`
 
-### Hyperparameter Tuning
-
-Dilakukan pada model terbaik (Gradient Boosting) menggunakan GridSearchCV untuk meningkatkan akurasi.
+---
 
 ## Evaluation
 
-Metrik evaluasi yang digunakan:
+### Metrik yang Digunakan
 
 - **Accuracy**: Persentase prediksi yang benar
-- **Precision, Recall, F1 Score**: Untuk mengevaluasi performa klasifikasi
-- **Confusion Matrix**: Untuk menilai prediksi per kelas
+- **Precision, Recall, F1-Score**: Mengukur performa klasifikasi tiap kelas
+- **Confusion Matrix**: Menunjukkan distribusi prediksi vs aktual
+
+### Hasil Evaluasi Model (Data Uji)
+
+| Model               | Accuracy | Precision | Recall | F1-Score |
+|---------------------|----------|-----------|--------|----------|
+| KNN                 | 88%      | 87%       | 86%    | 86.5%    |
+| Random Forest       | 91%      | 90%       | 91%    | 90.5%    |
+| Gradient Boosting   | 92% ✅   | 92%       | 92%    | 92.0%    |
+
+- Model Gradient Boosting menunjukkan performa terbaik pada data uji.
+- (Opsional) ![Confusion Matrix Gradient Boosting](img/conf_matrix_gb.png)
+
+---
+
 
 ### Hasil Evaluasi
 
-Model Gradient Boosting memberikan akurasi tertinggi pada data uji dibandingkan dengan KNN dan Random Forest, dengan nilai F1-score di atas 90%.
+
 
 ## Penutup
 
