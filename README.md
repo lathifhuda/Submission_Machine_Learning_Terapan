@@ -124,10 +124,6 @@ Model yang digunakan:
 
 ![Perbandingan hasil model](https://github.com/lathifhuda/Submission_Machine_Learning_Terapan/raw/main/evaluasi%20model.png)
 
-## Penutup
 
-Model prediksi status gizi balita berhasil dikembangkan dan memberikan hasil yang menjanjikan. Proyek ini dapat dikembangkan lebih lanjut dengan menambahkan fitur lain seperti berat badan, data ibu, serta kondisi lingkungan.
-
----
 
 > 📌 **Catatan**: Proyek ini disusun untuk memenuhi submission proyek Machine Learning di Dicoding. Seluruh proses dari data preparation hingga evaluasi dilakukan sendiri oleh Lathif Nurma Huda, Universitas Sahid Surakarta.
