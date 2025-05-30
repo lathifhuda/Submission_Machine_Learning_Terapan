@@ -115,7 +115,7 @@ Model yang digunakan:
 | Gradient Boosting Classifier | 96.19%             | 92.64%           |
 
 
-- Model Gradient Boosting menunjukkan performa terbaik pada data uji.
+- Model Random Forest menunjukkan performa terbaik pada data uji.
 
 ---
 
