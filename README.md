@@ -43,7 +43,7 @@ Dataset yang digunakan diperoleh dari Kaggle:
 ### Visualisasi:
 
 - Distribusi usia dan tinggi badan ditampilkan dalam histogram dan boxplot
-  ![Boxplot_umur](https://github.com/lathifhuda/Submission_Machine_Learning_Terapan/blob/main/boxplot%20umur.png)
+  ![Boxplot_umur](https://github.com/lathifhuda/Submission_Machine_Learning_Terapan/raw/main/boxplot%20umur.png)
   ![Boxplot](https://github.com/lathifhuda/Submission_Machine_Learning_Terapan/blob/main/boxplot.png)
 - Korelasi antar fitur divisualisasikan dalam heatmap:
 
