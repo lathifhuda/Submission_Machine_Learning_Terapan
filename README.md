@@ -44,7 +44,7 @@ Dataset yang digunakan diperoleh dari Kaggle:
 
 - Distribusi usia dan tinggi badan ditampilkan dalam histogram dan boxplot
   ![Boxplot_umur](https://github.com/lathifhuda/Submission_Machine_Learning_Terapan/raw/main/boxplot%20umur.png)
-  ![Boxplot](https://github.com/lathifhuda/Submission_Machine_Learning_Terapan/blob/main/boxplot.png)
+  ![Boxplot](https://github.com/lathifhuda/Submission_Machine_Learning_Terapan/raw/main/boxplot.png)
 - Korelasi antar fitur divisualisasikan dalam heatmap:
 
   ![Matriks Korelasi](https://github.com/lathifhuda/Submission_Machine_Learning_Terapan/raw/main/matrik%20korelasi.png)
@@ -105,8 +105,6 @@ Model yang digunakan:
 ### Metrik yang Digunakan
 
 - **Accuracy**: Persentase prediksi yang benar
-- **Precision, Recall, F1-Score**: Mengukur performa klasifikasi tiap kelas
-- **Confusion Matrix**: Menunjukkan distribusi prediksi vs aktual
 
 ### Hasil Evaluasi Model (Data Uji)
 
@@ -124,7 +122,7 @@ Model yang digunakan:
 
 ### Hasil Evaluasi
 
-![Perbandingan hasil model](https://github.com/lathifhuda/Submission_Machine_Learning_Terapan/blob/main/evaluasi%20model.png)
+![Perbandingan hasil model](https://github.com/lathifhuda/Submission_Machine_Learning_Terapan/raw/main/evaluasi%20model.png)
 
 ## Penutup
 
