@@ -69,19 +69,69 @@ df.columns = df.columns.str.strip().str.replace(' ', '_').str.lower()
 
 2. **Menghapus Duplikat**  
    Sebanyak 312 baris duplikat dihapus dari dataset.
+   ```
+   df.drop_duplicates(inplace=True)
+   ```
+   Setelah proses ini:
+    Jumlah data berkurang dari 5000 menjadi 4688
+    Tidak ada lagi baris duplikat yang tersisa
+   ```
+   (df.duplicated().sum() == 0)
+   ```
 
-3. **Mengatasi Outlier**  
+4. **Mengatasi Outlier**  
    Deteksi dan penghapusan outlier pada fitur numerik (`Umur`, `Tinggi Badan`) menggunakan metode IQR.
+   ```
+   def remove_outliers_iqr(dataframe, column):
+    Q1 = dataframe[column].quantile(0.25)
+    Q3 = dataframe[column].quantile(0.75)
+    IQR = Q3 - Q1
+    lower_bound = Q1 - 1.5 * IQR
+    upper_bound = Q3 + 1.5 * IQR
+    return dataframe[(dataframe[column] >= lower_bound) & (dataframe[column] <= upper_bound)]
+   ```
+   Setelah menghapus outlier:
+   Jumlah data menjadi 4688 baris
+   Nilai ekstrim yang dapat mengganggu model telah dihilangkan
+    
 
-4. **Encoding Fitur Kategorikal**  
+6. **Encoding Fitur Kategorikal**  
    Menggunakan `LabelEncoder` pada `Jenis Kelamin` dan `Status Gizi`.
+   ```
+   from sklearn.preprocessing import LabelEncoder
+   le_jenis_kelamin = LabelEncoder()
+   le_stunting = LabelEncoder()
+   df['jenis_kelamin'] = le_jenis_kelamin.fit_transform(df['jenis_kelamin'])
+   df['stunting'] = le_stunting.fit_transform(df['stunting'])
+   ```
+   Fitur kategorikal diubah ke bentuk numerik menggunakan LabelEncoder, agar dapat digunakan dalam model machine learning
 
-5. **Split Dataset**  
+
+8. **Split Dataset**  
    Dataset dibagi menjadi data latih dan data uji dengan rasio 80:20.
+   ```
+   from sklearn.model_selection import train_test_split
+   X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+   ```
+   Dataset dibagi menjadi:
+   Data Latih (Train): 3750 sampel
+   Data Uji (Test): 938 sampel
+   Menggunakan train_test_split dengan rasio 80:20.
 
-6. **Normalisasi Data**  
+
+10. **Normalisasi Data**  
    Menggunakan `StandardScaler` pada fitur numerik.  
    Normalisasi dilakukan setelah split, dan scaler **di-fit pada data latih saja** untuk mencegah data leakage.
+```
+from sklearn.preprocessing import StandardScaler
+
+scaler = StandardScaler()
+X_train_scaled = scaler.fit_transform(X_train)
+X_test_scaled = scaler.transform(X_test)
+```
+
+
+
 
 ---
 
