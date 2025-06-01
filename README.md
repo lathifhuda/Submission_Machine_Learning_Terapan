@@ -60,19 +60,26 @@ Dataset yang digunakan diperoleh dari Kaggle:
 
 ## Data Preparation
 
-1. **Menghapus Duplikat**  
+1. **Pengubahan Nama Kolom (Column Renaming)**
+Untuk menjaga konsistensi dan kemudahan pemrosesan, semua nama kolom diubah ke format huruf kecil, tanpa spasi, dan diganti dengan underscore (`_`).  
+Langkah ini dilakukan dengan kode berikut:
+```python
+df.columns = df.columns.str.strip().str.replace(' ', '_').str.lower()
+```
+
+2. **Menghapus Duplikat**  
    Sebanyak 312 baris duplikat dihapus dari dataset.
 
-2. **Mengatasi Outlier**  
+3. **Mengatasi Outlier**  
    Deteksi dan penghapusan outlier pada fitur numerik (`Umur`, `Tinggi Badan`) menggunakan metode IQR.
 
-3. **Encoding Fitur Kategorikal**  
+4. **Encoding Fitur Kategorikal**  
    Menggunakan `LabelEncoder` pada `Jenis Kelamin` dan `Status Gizi`.
 
-4. **Split Dataset**  
+5. **Split Dataset**  
    Dataset dibagi menjadi data latih dan data uji dengan rasio 80:20.
 
-5. **Normalisasi Data**  
+6. **Normalisasi Data**  
    Menggunakan `StandardScaler` pada fitur numerik.  
    Normalisasi dilakukan setelah split, dan scaler **di-fit pada data latih saja** untuk mencegah data leakage.
 
